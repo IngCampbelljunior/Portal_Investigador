@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Fundación Campbell</title>
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    @*<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/91da81d6d1.js"></script>
+
+    <script src="~/Scripts/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/StyleSimple.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Grupo Campbell", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" id="myMenu">
+                    <li>@Html.ActionLink("Generar Reporte", "ConsultaPaciente", "Home", null, null)</li>
+
+                    <li>@Html.ActionLink("Registrar Investigador", "RegistrarInvestigador", "Home", null, null)</li>
+
+                    <li>@Html.ActionLink("Consultas", "ConsultarFecha", "Home", null, null)</li>
+                                        
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="@Url.Action("LogIn", "Home")" class="btn" id="btnLogOut">
+                            <span class="glyphicon glyphicon-log-out" data-toggle="tooltip" title="Cerrar Sesion"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="navbar navbar-inverse navbar-bottom" role="navigation">
+                <div class="container">
+                    <p class="navbar-text">&copy; @DateTime.Now.Year - <a href="http://siscolombia.co" target="_blank"><img src="~/Content/images/logoSis16.png" /> </a> SERVICIOS INTEGRALES EN SISTEMAS - S.I.S.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    @*<div class="navbar navbar-inverse navbar-bottom" role="navigation">
+        <div class="container">
+            <p class="navbar-text">&copy; @DateTime.Now.Year - <a href="http://siscolombia.co" target="_blank"><img src="~/Content/images/logoSis16.png" /> </a> SERVICIOS INTEGRALES EN SISTEMAS - S.I.S.</p>
+        </div>
+    </div>*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

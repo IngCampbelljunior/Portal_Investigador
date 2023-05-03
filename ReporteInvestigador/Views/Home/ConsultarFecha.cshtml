@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Consulta por Fecha";
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+<link href="~/Content/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/MyStyle.css">
+<h2>Reportes</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="panel-body">
+        <fieldset>
+            <legend>Parametros del Reporte</legend>
+            <div class="row">
+                <div class="field col-md-2">
+                    @Html.Label("Fecha Inicial:")
+                    @Html.TextBox("FechaIni", "", new { @class = "form-control input-sm datepicker ", @readonly = "readonly" })
+
+                </div>
+                <div class="field col-md-2">
+                    @Html.Label("Fecha Final:")
+                    @Html.TextBox("FechaFin", "", new { @class = "form-control input-sm datepicker ", @readonly = "readonly" })
+                </div>
+            </div>
+            <br />
+            <div class="form-actions ">
+                <button type="button" id="btnBuscarInf" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-search"></span> Buscar
+                </button>
+                &nbsp;
+                <a href="@Url.Action("LogOut", "Home")" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-off"></span> Salir
+                </a>
+                @*@Html.ActionLink("SALIR", "LogOut", "")*@
+            </div>
+        </fieldset>
+    </div>
+
+    // Datatable de Lista de Eventos Adversos
+    <div id="gvPrescripcion">
+
+    </div>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link href="~/Extras/DataTable/select.dataTables.min.css" rel="stylesheet" />
+
+    @section Scripts {
+
+        <script src="~/Extras/DataTable/jquery.dataTables.min.js"></script>
+        <script src="~/Extras/DataTable/dataTables.select.min.js"></script>
+
+        <link href="~/Extras/DataTable/buttons.bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Extras/DataTable/buttons.dataTables.css" rel="stylesheet" />
+        <script src="~/Extras/DataTable/dataTables.buttons.min.js"></script>
+        <script src="~/Extras/DataTable/jszip.min.js"></script>
+        <script src="~/Extras/DataTable/pdfmake.min.js"></script>
+        <script src="~/Extras/DataTable/buttons.html5.min.js"></script>
+        <script id="btnImprimir" src="~/Extras/DataTable/buttons.print.min.js"></script>
+        <script src="~/Extras/DataTable/buttons.flash.min.js"></script>
+
+        <link href="~/Scripts/datepicker/css/datepicker3.css" rel="stylesheet" />
+        <script src="~/Scripts/datepicker/js/bootstrap-datepicker.js"></script>
+
+        <script src="~/Extras/Validaciones.js" type="text/javascript"></script>
+        <script src="~/Extras/Utilidades.js" type="text/javascript"></script>
+
+        <script src="~/Scripts/JSReporteInvestigador.js"></script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+            })
+            $(function () {
+                $("#FechaIni").datepicker({
+                    format: 'dd/mm/yyyy',
+                    //dateFormat: "dd/mm/yy",
+                    showOn: 'button',
+                    buttonImageOnly: true,
+                    buttonImage: '/Extras/calendar.png'
+                });
+            });
+            $(function () {
+                $("#FechaFin").datepicker({
+                    format: 'dd/mm/yyyy',
+                    //dateFormat: "dd/mm/yy",
+                    showOn: 'button',
+                    buttonImageOnly: true,
+                    buttonImage: '/Extras/calendar.png'
+                });
+            });
+        </script>
+
+    }
+}

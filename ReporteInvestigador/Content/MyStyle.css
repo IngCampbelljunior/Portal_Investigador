@@ -1,0 +1,119 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* Get rid of all default margins/paddings. Set typeface */
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: "lato", sans-serif;
+}
+
+/* Pone el formulario en el centro tanto horizontal como verticalmente. Establece su altura al 100% de la altura de la ventana gráfica */
+
+.signupFrm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    background-color: white;
+    width: 900px;
+    border-radius: 15px;
+    padding: 20px 20px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+.title {
+    font-size: 20px;
+    color: #145A32;
+}
+
+.inputContainer {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Style the inputs */
+
+.input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #DADCE0;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+    background: none;
+    z-index: 1;
+}
+
+/* Hide the placeholder texts (a) */
+
+::placeholder {
+    color: transparent;
+}
+
+/* Styling text labels */
+
+.label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 0 4px;
+    background-color: white;
+    color: #DADCE0;
+    font-size: 16px;
+    transition: 0.5s;
+    z-index: 0;
+}
+
+.submitBtn {
+    display: block;
+    margin-left: auto;
+    padding: 15px 30px;
+    border: none;
+    background-color: #145A32;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+    .submitBtn:hover {
+        background-color: #1D8348;
+        transform: translateY(-2px);
+    }
+
+.input:focus + .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: #145A32;
+}
+
+.input:focus {
+    border: 2px solid #145A32;
+}
+
+.input:not(:placeholder-shown) + .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 800;
+    color: #145A32;
+}

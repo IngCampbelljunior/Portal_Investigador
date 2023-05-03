@@ -1,0 +1,29 @@
+﻿
+@*@{
+    ViewBag.Title = "ConsultaCaso";
+}*@
+
+@*<h2>ConsultaCaso</h2>*@
+@*@using (Html.BeginForm("Consultas", "HomeController", FormMethod.Post))*@
+@*{
+    <fieldset>
+        <div class="row">
+            <div class="field col-md-2">
+                @Html.Label("Fecha:")
+                @Html.TextBox("FechaIni", "", new { @class = "form-control input-sm datepicker ", @readonly = "readonly" })
+
+            </div>
+
+            <div class="form-actions ">
+                <button type="button" id="btnBuscar" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-search"></span> Buscar
+                </button>
+                &nbsp;-->
+                <a href="@Url.Action("LogOut", "Consultas")" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-off"></span> Salir
+                </a>
+                @Html.ActionLink("SALIR", "LogOut", "")
+            </div>
+        </div>
+    </fieldset>
+}*@

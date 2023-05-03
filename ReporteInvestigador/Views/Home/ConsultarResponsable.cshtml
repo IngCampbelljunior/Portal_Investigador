@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Consulta por Responsable";
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+<link rel="stylesheet" href="~/Content/MyStyleFormConsulFecha.css">
+
+<body>
+    <section class="vh-120">
+        <div class="signupFrm">
+            <form action="" class="form">
+                <h1 class="title">Consulta por aseguradora</h1>
+
+                <br />
+                <div>
+                    <label class="elabel">Aseguradora</label>
+                    <div class="inputContainer">
+
+                        <select class="input" type="text" name="caso" id="caso" placeholder="a">
+                            <option value="value0"> </option>
+                            <option value="value1">Value 1</option>
+                            <option value="value2">Value 2</option>
+                            <option value="value3">Value 3</option>
+                        </select>
+
+                    </div>
+                </div>
+                <input type="submit" class="submitBtn" value="Consultar">
+                <br />
+
+
+            </form>
+        </div>
+    </section>    
+</body>
